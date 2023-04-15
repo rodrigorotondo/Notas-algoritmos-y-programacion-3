@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <bookmarks list=""/>
+  <node name="Smalltalk sintaxis" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679337205" ts_lastsave="1679343130">
+    <rich_text>sintaxis basica de smalltalk y chismes importantes
+
+| variable1 variable2 | ------------------→ la declaraicion de variables debe hacerse al principio del “programa” y se separan por espacios
+
+comando . -------------------------------→ todos los comandos terminan por punto
+
+
+ variable1 := 3. ---------------------→ la asignacion de variable se hace con :=
+ 
+ variable1 = variable2. -----------------→ comparacion de variables
+ 
+ los arrays y colecciones similares empiezan en 1.</rich_text>
+    <node name="manejo de cadenas" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679337448" ts_lastsave="1679338219">
+      <rich_text>las cadenas se declaran entre comilla simple y los comentarios en comilla doble
+
+ejemplo:
+
+juanCarlos := ‘ hola juan carlos’. “esto es un comentario”
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+podemos hacer una “seleccion” de caracteres usando copyFrom:
+
+ejemplo:
+
+</rich_text>
+      <rich_text weight="heavy">Transcript show ('hola' copyFrom: 1 to: 3).</rich_text>
+      <rich_text>
+
+el resultado seria el siguiente:
+hol
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Transcript cr. -----------------------------------→ ingresa un salto de linea
+Transcript clear. -------------------------------→ limpia la consola</rich_text>
+    </node>
+    <node name="palabras reservadas" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679337845" ts_lastsave="1679343044">
+      <rich_text>true --------------------------------------→ valor booleano 
+
+false --------------------------------------→ valor booleano 
+
+self --------------------------------------→ autoreferenciacion del objeto
+
+super ----------------------------------→ referencia al objeto padre
+
+nil----------------------------------------→ es el equivalente a “null”
+
+thisContext</rich_text>
+    </node>
+    <node name="bloques de codigo" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679338017" ts_lastsave="1679338694">
+      <rich_text>es una funcion anonima equivalente a la funcion lambda en python
+
+sintaxis:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ejemplo1:
+
+</rich_text>
+      <rich_text weight="heavy">| holaMundo |
+
+holaMundo := [
+	Transcript show: ‘hola mundo!’ ; cr.
+	
+].
+
+holaMundo value.</rich_text>
+      <rich_text>
+
+imprime:
+hola mundo!
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+los bloques tambien pueden recibir parametros:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ejemplo2:
+
+</rich_text>
+      <rich_text weight="heavy">|sumador |&#13;&#13;Transcript clear.&#13;&#13;sumador := [ :x :y | x+ y ].&#13;&#13;Transcript show: (sumador value: 2 value: 3).
+</rich_text>
+      <rich_text>
+imprime:
+
+</rich_text>
+      <rich_text weight="heavy">5</rich_text>
+    </node>
+    <node name="Estructuras de control" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679338733" ts_lastsave="1679341396">
+      <rich_text>Las estructuras de control se componen por if elses, fors y whiles, pero se escriben de una manera particular</rich_text>
+      <node name="if-else" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679339633" ts_lastsave="1679777846">
+        <rich_text>(condicion a evaluar) ifTrue: [codigo a ejecutar] -----------------------------------→ si es verdadera la comprobacion ejecuta el bloque
+
+() ifFalse [...] -----------------------------------→ si es falsa la comprobacion ejecuta el bloque
+
+()
+	ifTrue: [...] -----------------------------------→ una mezcla de ambas en la cual si es verdadero ejecuta el primer bloque y si no lo es, ejecuta el segundo
+	ifFalse: [...]
+	
+	ejemplo:
+	
+</rich_text>
+        <rich_text weight="heavy">| comparador |&#13;Transcript clear.&#13;&#13;comparador := [ :x |&#13;	&#13;	(x&gt;5)&#13;	 ifTrue: [ Transcript show: x.&#13;				  Transcript show: ' Es mayor que 5';cr. ]&#13;    ifFalse: [ Transcript show: x.&#13;					Transcript show: ' Es menor que 5' ;cr.].	&#13;	].&#13;&#13;comparador value: 1.&#13;comparador value: 16.</rich_text>
+        <rich_text>
+
+imprime:
+
+1 Es menor que 5&#13;16 Es mayor que 5</rich_text>
+      </node>
+      <node name="For" unique_id="7" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679339696" ts_lastsave="1679341365">
+        <rich_text>timesRepeat: [...] -----------------------------------------→ seria el for pero escrito especificamente la cantidad de veces que necesito hacer el ciclo
+
+ejemplo:
+
+</rich_text>
+        <rich_text weight="heavy">|acumulador potencia |&#13;&#13;Transcript clear.&#13;&#13;potencia:= [ :x :y |&#13;	acumulador := x asInteger .&#13;	y timesRepeat: [ acumulador := acumulador *x].&#13;	&#13;	Transcript show: acumulador .&#13;	] .&#13;&#13;potencia value:2 value:4.</rich_text>
+        <rich_text>
+
+imprime: 
+
+</rich_text>
+        <rich_text weight="heavy">32</rich_text>
+      </node>
+      <node name="While True" unique_id="8" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679341396" ts_lastsave="1679341702">
+        <rich_text>[...] whileTrue: [...] -------------------------------→ el primer bloque es una condicion a comprobar, el segundo es la accion a realizar
+
+ejemplo:
+
+</rich_text>
+        <rich_text weight="heavy">|i n |&#13;&#13;Transcript clear.&#13;&#13;n:= 1.&#13;i:= 0.&#13;[ i&lt;10 ] whileTrue: [ &#13;	n:= n*2.&#13;	i := i+1.&#13;	].&#13;&#13;Transcript show: n.</rich_text>
+        <rich_text>
+
+imprime:
+
+</rich_text>
+        <rich_text weight="heavy">1024</rich_text>
+        <rich_text>
+</rich_text>
+      </node>
+    </node>
+    <node name="Arrays" unique_id="9" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679342533" ts_lastsave="1679343014">
+      <rich_text>la sintaxis del array es la siguiente:
+
+|</rich_text>
+      <rich_text weight="heavy"> numeros | 
+
+numeros:= Array new: 5. --------→ declaracion
+
+numeros at: 1 put: 5. ------------------------------&gt;asignacion de valor, notese que no importa el tipo del objeto
+numeros at: 2 put: 2/4.
+numeros at:3 put: ‘fiuba’.
+
+Transcript show: (numeros at: 1) . --------------------------→ obtencion de la info que esta guardada en el array
+Transcript show: (numeros at: 2) .
+Transcript show: (numeros at: 3) .
+Transcript show: (numeros at: 4) .</rich_text>
+      <rich_text>
+
+
+imprime: 
+
+</rich_text>
+      <rich_text weight="heavy">5&#13;(1/2)&#13;fiuba&#13;nil</rich_text>
+      <rich_text>----------------------------------------------------------------------→ es el equivalente a “null”
+
+
+</rich_text>
+    </node>
+    <node name="lista FIFO o &quot;cola&quot;" unique_id="10" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1679343130" ts_lastsave="1679343725">
+      <rich_text>se lo llama coleccion ordenada o en ingles “OrderedCollection”, es basicamente una cola, en el que el primer objeto que entra tambien es el primero en salir
+
+ejemplo:
+
+</rich_text>
+      <rich_text weight="heavy">|numeros|
+
+numeros:= OrderedCollection new.
+
+numeros add: 5.
+numeros add: 2/4.
+numeros add: ‘fiuba’.
+
+numeros do: [:elemento | Transcript show: elemento; cr]</rich_text>
+      <rich_text>--------------------------→ aqui “numeros” es la coleccion de objetos a iterar, “elemento”  es una
+                                                                                                                           variable que representa  a cada objeto de la coleccion a medida que se
+                                                                                                                           itera y lo que le sigue al pipe es el codigo que se va a ejecutar en cada
+                                                                                                                           elemento.
+     
+ imprime: 
+ 
+</rich_text>
+      <rich_text weight="heavy"> 5&#13;(1/2)&#13;fiuba</rich_text>
+      <rich_text>
+ </rich_text>
+    </node>
+  </node>
+</cherrytree>
